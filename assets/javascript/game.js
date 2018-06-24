@@ -30,9 +30,9 @@ for (var i = 0; i < guessingWord.length; i++) {
 document.getElementById("remainders").innerHTML = remainders;
 document.getElementById("letters").innerHTML = letters;
 if(remainders <= 0) {
-    document.getElementById("gameover-image").style = "";
+    document.getElementById("userLoss-Image").style = "display: block";
     //randomImageLost();
-    document.getElementById("pressKeyTryAgain").style ="";
+    document.getElementById("pressAnyKeyTryAgain").style ="";
     endGuessing = true;
 }
 };
@@ -65,9 +65,9 @@ function startGame() {
        guessingWord.push("_");
    }
    
-    document.getElementById("pressKeyTryAgain").style= "display: none";
-    document.getElementById("gameover-image").style = "display: none";
-    document.getElementById("youwin-image").style= "display: none";
+    document.getElementById("pressAnyKeyTryAgain").style= "display: none";
+    document.getElementById("userLoss-Image").style = "display: none";
+    document.getElementById("userWin-Image").style= "display: none";
    
    showGame();
    };
@@ -118,27 +118,12 @@ if (letterPositions.length <= 0) {
 function Win() {
     if (guessingWord.indexOf("_") === -1) {
     playSound();
-    document.getElementById("youwin-image").style = "display: block";
+    document.getElementById("userWin-Image").style = "display: block";
     //randomImageWin();
-    document.getElementById("pressKeyTryAgain").style = "display: block";
+    document.getElementById("pressAnyKeyTryAgain").style = "display: block";
     wins++;
     endGuessing = true;
 }
-
-};
-// functions to generate images randomly 
-function randomImageWin() {
-    var randomImageNumber = Math.floor(Math.random() * 4) + 1;
-    var imageName = "you-win" + randomImageNumber + ".jpg";
-    (document.getElementById("youwin-image").style = "display: block").src = "./assets/images/" + imageName;
-
-};
-
-function randomImageLost() {
-    var randomImageNumber = Math.floor(Math.random() * 4) + 1;
-    var imageName = "game-over" + randomImageNumber + ".png";
-    (document.getElementById("youwin-image").style = "display: block").src = "./assets/images/" + imageName;
-
 };
 
 // play sounds when user wins 
@@ -146,3 +131,19 @@ function playSound() {
     var sound = new Audio('./assets/images/whistle.wav');
     sound.play();
 }
+
+// functions to generate images randomly 
+function randomImageWin() {
+    var randomImageNumber = Math.floor(Math.random() * 4) + 1;
+    var imageName = "you-win" + randomImageNumber + ".jpg";
+    (document.getElementById("userWin-Image").style = "display: block").src = "./assets/images/" + imageName;
+
+};
+
+function randomImageLost() {
+    var randomImageNumber = Math.floor(Math.random() * 4) + 1;
+    var imageName = "game-over" + randomImageNumber + ".png";
+    (document.getElementById("userWin-Image").style = "display: block").src = "./assets/images/" + imageName;
+
+};
+
