@@ -1,5 +1,17 @@
 
 
+// global variables
+var maximumGuess = 12;           
+var letters = [];        
+var currentWord;          
+var guessingWord = [];          
+var remainders = 0;      
+var startGuessing= false;        
+var endGuessing = false;           
+var wins = 0;                  
+
+
+// Array of words 
 var wordArray =           
 [
     "goal",
@@ -18,16 +30,7 @@ var wordArray =
     "foul",
     "kick",
 ];
-
-// global variables
-const maximumGuess = 10;           
-var letters = [];        
-var currentWord;          
-var guessingWord = [];          
-var remainders = 0;      
-var startGuessing= false;        
-var endGuessing = false;           
-var wins = 0;                  
+               
 
 
 
@@ -55,15 +58,16 @@ showGame();
 };
 
 
+// show game on HTML page 
 function showGame() {
 
-document.getElementById("Wins").innerText = wins;
-document.getElementById("currentWord").innerText = "";
+document.getElementById("Wins").innerHTML = wins;
+document.getElementById("currentWord").innerHTML = "";
 for (var i = 0; i < guessingWord.length; i++) {
-    document.getElementById("currentWord").innerText += guessingWord[i];
+    document.getElementById("currentWord").innerHTML += guessingWord[i];
 }
-document.getElementById("remainders").innerText = remainders;
-document.getElementById("letters").innerText = letters;
+document.getElementById("remainders").innerHTML = remainders;
+document.getElementById("letters").innerHTML = letters;
 if(remainders <= 0) {
     document.getElementById("gameover-image").style.cssText = "display: block";
     //randomImageLost();
@@ -97,7 +101,7 @@ if (remainders > 0) {
         check(letter);
     }
 }
-
+// Calling functions
 showGame();
  Win();
 };
@@ -117,7 +121,7 @@ for (var i = 0; i < wordArray[currentWord].length; i++) {
 if (positions.length <= 0) {
     remainders--;
 } else {
-    // Loop through all the indicies and replace the '_' with a letter.
+    // Loop through all and replace the '_' with a letter.
     for(var i = 0; i < positions.length; i++) {
         guessingWord[positions[i]] = letter;
     }
@@ -151,7 +155,8 @@ function randomImageLost() {
 
 };
 
+// play sounds when user wins 
 function playSound() {
-    var sound = new Audio('./images./whistle.wav');
+    var sound = new Audio('./images/whistle.wav');
     sound.play();
 }
