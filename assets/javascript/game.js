@@ -49,9 +49,9 @@ for (var i = 0; i < wordArray[currentWord].length; i++) {
     guessingWord.push("_");
 }
 
-document.getElementById("pressKeyTryAgain").style.cssText= "display: none";
-document.getElementById("gameover-image").style.cssText = "display: none";
-document.getElementById("youwin-image").style.cssText = "display: none";
+ document.getElementById("pressKeyTryAgain").style= "display: none";
+ document.getElementById("gameover-image").style = "display: none";
+ document.getElementById("youwin-image").style= "display: none";
 
 
 showGame();
@@ -69,9 +69,10 @@ for (var i = 0; i < guessingWord.length; i++) {
 document.getElementById("remainders").innerHTML = remainders;
 document.getElementById("letters").innerHTML = letters;
 if(remainders <= 0) {
-    document.getElementById("gameover-image").style.cssText = "display: block";
+    document.getElementById("gameover-image").style = "";
     //randomImageLost();
-    document.getElementById("pressKeyTryAgain").style.cssText = "display:block";
+    document.getElementById("pressKeyTryAgain").style ="";
+
     endGuessing = true;
 }
 };
@@ -140,18 +141,18 @@ function Win() {
     endGuessing = true;
 }
 };
-
+// functions to generate images randomly 
 function randomImageWin() {
     var randomImageNumber = Math.floor(Math.random() * 4) + 1;
     var imageName = "you-win" + randomImageNumber + ".jpg";
-    (document.getElementById("youwin-image").style.cssText= "display: block").src = "./images/" + imageName;
+    (document.getElementById("youwin-image").style = "display: block").src = "./images/" + imageName;
 
 };
 
 function randomImageLost() {
     var randomImageNumber = Math.floor(Math.random() * 4) + 1;
     var imageName = "game-over" + randomImageNumber + ".png";
-    (document.getElementById("youwin-image").style.cssText = "display: block").src = "./images/" + imageName;
+    (document.getElementById("youwin-image").style = "display: block").src = "./images/" + imageName;
 
 };
 
