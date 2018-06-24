@@ -108,7 +108,7 @@ var positions = [];
 
 
 for (var i = 0; i < wordArray[currentWord].length; i++) {
-    if(wordArray[currentWord[i]] === letter) {
+    if(wordArray[currentWord][i]=== letter) {
         positions.push(i);
     }
 }
