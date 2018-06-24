@@ -66,19 +66,21 @@ document.getElementById("remainders").innerText = remainders;
 document.getElementById("letters").innerText = letters;
 if(remainders <= 0) {
     document.getElementById("gameover-image").style.cssText = "display: block";
+    //randomImageLost();
     document.getElementById("pressKeyTryAgain").style.cssText = "display:block";
     endGuessing = true;
 }
 };
 
-document.onkeydown = function(e) {
-// If we finished a game, dump one keystroke and reset.
-if(endGuessing) {
-    startGuessing= false;
+document.onkeydown = function(event) {
+// reset when a game is finished
+    if(endGuessing) {
+        startGame();
+        endGuessing = false;
 } else {
-    // Check to make sure a-z was pressed.
-    if(e.keyCode >= 65 && e.keyCode <= 90) {
-        guessLetters(e.key.toLowerCase());
+    // make sure A-Z is guess.
+    if(event.keyCode >= 65 && event.keyCode <= 90) {
+        guessLetters(event.key.toLowerCase());
     }
 }
 };
@@ -101,12 +103,12 @@ showGame();
 };
 
 
-
+function check(letter){
 var positions = [];
 
 
 for (var i = 0; i < wordArray[currentWord].length; i++) {
-    if(wordArray[currentWord][i] === letter) {
+    if(wordArray[currentWord[i]] === letter) {
         positions.push(i);
     }
 }
@@ -114,7 +116,6 @@ for (var i = 0; i < wordArray[currentWord].length; i++) {
 
 if (positions.length <= 0) {
     remainders--;
-    updateHangmanImage();
 } else {
     // Loop through all the indicies and replace the '_' with a letter.
     for(var i = 0; i < positions.length; i++) {
@@ -126,10 +127,31 @@ if (positions.length <= 0) {
 
 
 function Win() {
-if(guessingWord.indexOf("_") === -1) {
+    if (guessingWord.indexOf("_") === -1) {
+    playSound();
     document.getElementById("youwin-image").style.cssText = "display: block";
+    //randomImageWin();
     document.getElementById("pressKeyTryAgain").style.cssText= "display: block";
     wins++;
     endGuessing = true;
 }
 };
+
+function randomImageWin() {
+    var randomImageNumber = Math.floor(Math.random() * 4) + 1;
+    var imageName = "you-win" + randomImageNumber + ".jpg";
+    (document.getElementById("youwin-image").style.cssText= "display: block").src = "./images/" + imageName;
+
+};
+
+function randomImageLost() {
+    var randomImageNumber = Math.floor(Math.random() * 4) + 1;
+    var imageName = "game-over" + randomImageNumber + ".png";
+    (document.getElementById("youwin-image").style.cssText = "display: block").src = "./images/" + imageName;
+
+};
+
+function playSound() {
+    var sound = new Audio('./images./whistle.wav');
+    sound.play();
+}
