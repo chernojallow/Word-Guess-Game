@@ -51,7 +51,6 @@ document.onkeydown = function(e) {
 };
 
 function startGame() {
-
     remainders = maximumGuess;
     startGuessing = false;
    
