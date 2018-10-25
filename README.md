@@ -6,4 +6,4 @@ If user guesses matches a word, the user wins and increment by 1.
 If user guesses does not match, user can press any key to restart guessing.
 
  #Screenshot 
-![alt text] (assets/images/gameShot)
+![alt text] (assets/images/gameShot copy.png)
