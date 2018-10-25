@@ -1,3 +1,6 @@
+
+# Javascript (Word-Guess-Game
+
 This is a Word Guess Game written in HTML, CSS and Javascript.
 A user is given 12 chances to guess a word from a list of words by pressing letters from the keybored.
 A letter can only be guess once and each guess will decrement the 12 chances given by 1.
@@ -5,6 +8,6 @@ Blank spaces are shown on the screen and as the user types a letter it would rep
 If user guesses matches a word, the user wins and increment by 1.
 If user guesses does not match, user can press any key to restart guessing.
 
- #Screenshot 
+ # Screenshot 
  
 ![alt text](assets/images/gameshot.png)
