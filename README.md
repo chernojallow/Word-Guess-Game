@@ -7,4 +7,4 @@ If user guesses does not match, user can press any key to restart guessing.
 
  #Screenshot 
  
-![alt text](assets/images/gameShot copy.png)
+![alt text](assets/images/gameshot.png)
