@@ -1,5 +1,5 @@
 
-# Javascript (Word-Guess-Game
+# Javascript (Word-Guess-Game)
 
 This is a Word Guess Game written in HTML, CSS and Javascript.
 A user is given 12 chances to guess a word from a list of words by pressing letters from the keybored.
