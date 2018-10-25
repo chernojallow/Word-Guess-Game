@@ -51,8 +51,8 @@ document.onkeydown = function(e) {
 };
 
 function startGame() {
-    remainders = maximumGuess;
-    startGuessing = false;
+   remainders = maximumGuess;
+    startGuessing = false; 
    
    // randomly picking words 
    currentWord = Math.floor(Math.random() * (wordArray.length));
@@ -85,6 +85,7 @@ if (remainders > 0) {
         check(letter);
     }
 }
+
 // Calling functions
 showGame();
  Win();
